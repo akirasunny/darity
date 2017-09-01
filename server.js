@@ -18,12 +18,19 @@ app.use(method("_method"));
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-// require("./routes/api-routes")(app);
+// Routes
+// =============================================================
+require("./routers/html-routes.js")(app);
+// require("./routers/moderator-routes.js")(app);
+// require("./routers/player-routes.js")(app);
+// require("./routers/sponsor-routes")(app);
 
 db.sequelize.sync().then(function() {
 	app.listen(port, function() {
 		console.log("Connected to port " + port);
 	});
 });
+
+
 
 //
