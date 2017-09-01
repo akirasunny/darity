@@ -52,11 +52,11 @@ body {
 /* Custom Button Styles */
 
 #fbbutton {
-    width: 100%;
+    width: 80%;
 }
 
 .btn-lg {
-    margin: 0px 10% 10% 10%;
+    margin: 0px 20% 10% 0px;
 }
 
 
