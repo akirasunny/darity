@@ -42,6 +42,9 @@ app.get("/sponsors", function(req, res) {
     res.render("sponsors");
   });
 
+app.get("/moderators", function(req, res) {
+    res.render("moderators");
+  });
 };
 
 

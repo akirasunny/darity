@@ -24,8 +24,15 @@ body {
     color: white;
 }
 
+.vertical-center {
+    display: table-cell;
+    vertical-align: middle;
+    color: white;
+    position: relative;
+}
+
 .text-vertical-center h1 {
-    font-size: 18.5em;
+    font-size: 14.5em;
     font-weight: 700;
     margin: 0;
     padding: 0;
@@ -225,23 +232,6 @@ hr.small {
 }
 
 
-/* Portfolio */
-
-.portfolio {
-    padding: 50px 0;
-}
-
-.portfolio-item {
-    margin-bottom: 30px;
-}
-
-.img-portfolio {
-    margin: 0 auto;
-}
-
-.img-portfolio:hover {
-    opacity: .8;
-}
 
 
 /* Call to Action */
@@ -254,22 +244,6 @@ hr.small {
     margin: 10px;
 }
 
-
-/* Map */
-
-.map {
-    height: 500px;
-}
-
-@media(max-width:768px) {
-    .map {
-        height: 75%;
-    }
-}
-
-.map iframe {
-    pointer-events: none;
-}
 
 
 /* Footer */
@@ -286,3 +260,4 @@ footer {
     display: none;
     padding: 15px 20px;
 }
+
