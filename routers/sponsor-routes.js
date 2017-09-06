@@ -9,7 +9,7 @@ module.exports = function(app) {
 			res.json(data);
 		});
 	});
-
+  
 	app.post("/newsponsor", function(req, res) {
 		db.sponsors.create({
 			name: req.body.name,
