@@ -48,7 +48,6 @@ body {
 }
 
 
-
 /* Custom Button Styles */
 
 #fbbutton {
@@ -259,5 +258,13 @@ footer {
     bottom: 5px;
     display: none;
     padding: 15px 20px;
+}
+
+
+.createpost {
+    float: left;
+    padding: 20px;
+    font-size: 20px;
+    font: bold;
 }
 
