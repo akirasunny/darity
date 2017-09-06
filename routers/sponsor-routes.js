@@ -8,4 +8,10 @@ module.exports = function(app) {
 			res.json(data);
 		});
 	});
+
+	app.post("/api/create", function(req, res) {
+		db.post.create(req.body).then(function(data) {
+			res.json(data)
+		})
+	})
 }
