@@ -1,0 +1,20 @@
+DARITY
+=================================================================================================
+
+DATABASE
+- posts: id, sponsorID, playerID, title, text, charity, charity_category, proof, completed
+- user: id, sponsorID, playerID, moderator(boolean), points, name, email (bcrypt)
+
+files:
+
+index.html
+about.html
+faqs.html
+myprofile.html
+leaderboard.html
+portal.html
+sponsors.html
+players.html
+
+
+
