@@ -30,7 +30,3 @@ db.sequelize.sync().then(function() {
 		console.log("Connected to port " + port);
 	});
 });
-
-
-
-//
