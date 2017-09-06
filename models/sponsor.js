@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataType) {
 			defaultValue: false
 		},
 		points: {
-			type: DataType.STRING,
+			type: DataType.INTEGER,
 			defaultValue: 0
 		},
 		name: {

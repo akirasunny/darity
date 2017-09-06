@@ -16,6 +16,10 @@ module.exports = function(sequelize, DataType) {
 			len: [1, 20],
 			defaultValue: "Charity"
 		},
+		points: {
+			type: DataType.INTEGER,
+			defaultValue: 0
+		},
 		proof: {
 			type: DataType.STRING,
 		},

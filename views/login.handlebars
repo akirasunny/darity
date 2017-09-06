@@ -1,40 +1,92 @@
 <header class="header" id="top">
 <div class="vertical-center container">
-  <form action="/newsponsor" method="POST">
-    <div class="container">
-      <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="name" required>
-
-        <label><b>Email</b></label>
-      <input type="password" placeholder="Enter Email" name="email" required>
-
-      <button type="submit" id="signup">Sign Up</button>
-          <input type="checkbox" checked="checked"> Remember me
-
-          <div class="container" style="background-color:f1f1f1">
-          <button type="button" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">Email?</a></span>
-        </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <form>
+        <div class="container">
+          <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="name" id="name">
+            <br>
+            <label><b>Email</b></label>
+          <input type="password" placeholder="Enter Email" name="email" id="email">
+            <br>
+          <button type="submit" id="signup">Sign Up</button>
+              <input type="checkbox" checked="checked"> Remember me
+              <br>
+              <div class="container" style="background-color:f1f1f1">
+              <button type="button" class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot <a href="#">Email?</a></span>
+            </div>
+          </div>
+        </form>
       </div>
-
-  <form action="/sponsor-login" method="POST">
-    <div class="container">
-      <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="name" required>
-
-        <label><b>Email</b></label>
-      <input type="password" placeholder="Enter Email" name="email" required>
-
-      <button type="submit">Login</button>
-          <input type="checkbox" checked="checked"> Remember me
-
-          <div class="container" style="background-color:f1f1f1">
-          <button type="button" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">Email?</a></span>
+    <div class="col-lg-6">
+      <form>
+        <div class="container">
+          <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="loginname" id="loginname">
+              <br>
+            <label><b>Email</b></label>
+          <input type="password" placeholder="Enter Email" name="loginemail" id="loginemail">
+              <br>
+          <button type="submit" id="login">Login</button>
+              <input type="checkbox" checked="checked"> Remember me
+              <br>
+              <div class="container" style="background-color:f1f1f1">
+              <button type="button" class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot <a href="#">Email?</a></span>
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
-    
 
-  </form>
+  </div>
 </header>
+
+<script>
+  $("#signup").on("click", signUp);
+
+  function signUp(event) {
+    event.preventDefault();
+      var obj = {
+        name: $("#name").val().trim(),
+        email: $("#email").val().trim()
+      }
+
+  if (obj.email.length < 5) {
+    alert("Password must be at least 5 characters long!")
+  }
+
+  else {
+    if (obj.name.length < 5) {
+      alert("Name must be at least 5 characters long!")
+    }
+
+    else {
+    $.post("/newsponsor", obj, function(res) {
+      localStorage.setItem("sponsorId", res.id);
+      console.log(res.id);
+      window.location.href = "/sponsors"
+    })
+    $("#name").val("");
+    $("#email").val("");
+  }}
+  }; 
+
+  $("#login").on("click", loginfunction);
+
+  function loginfunction(event) {
+    event.preventDefault();
+    var obj = {
+      name: $("#loginname").val().trim(),
+      email: $("#loginemail").val().trim()
+    }
+  $.post("/sponsor-login", obj, function(res) {
+    localStorage.setItem("sponsorId", res.id);
+    console.log(res.id)
+    window.location.href = "/sponsors"
+    })
+  };
+
+</script>
