@@ -25,7 +25,7 @@ module.exports = function(app) {
 				name: req.body.name
 			}
 		}).then(function(data) {
-			if (data === null) {
+			if (data.length === 0) {
 				db.sponsor.create({
 					name: req.body.name,
 					email: sha1(req.body.email)

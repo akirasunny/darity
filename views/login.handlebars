@@ -61,6 +61,7 @@
 
     else {
     $.post("/newsponsor", obj, function(res) {
+      console.log(res);
       if (res === "invalid") {
         alert("Username has already existed. Please try another one.");
         window.location.href = "/login";
