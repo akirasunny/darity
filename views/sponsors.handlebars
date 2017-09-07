@@ -8,12 +8,15 @@
 <br/>
 	<div id="posts">
 	{{#each posts}}
+	<form action="/sponsors/edit/{{id}}" method="POST">
 		<ul>
 		<li>Title: {{title}}</li>
 		<li>Points: {{points}}</li>
 		<li>Category: {{category}}</li>
 		<li>Created: {{createdAt}}</li>
+		<li><button type="submit">Edit</button></li>
 		</ul>
+	</form>
 	{{/each}}
 	</div>
 </div>
