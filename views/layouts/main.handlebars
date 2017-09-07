@@ -14,7 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
@@ -43,34 +46,167 @@
             <li class="sidebar-brand">
                 <a class="js-scroll-trigger" href="./myprofile">My Profile</a>
             </li>
-
             <li>
                 <a class="js-scroll-trigger" href="./about">About</a>
             </li>
             <li>
                 <a class="js-scroll-trigger" href="./faqs">FAQS</a>
             </li>
-
-            <li><br/></li>
+            <li>
+                <br/>
+            </li>
         </ul>
     </nav>
-    
+    {{{ body }}}
 
-		{{{ body }}}
-
-
-<!-- Bootstrap core JavaScript -->
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Custom scripts for this template -->
     <script src="js/stylish-portfolio.js"></script>
-
     <script>
-        $("#logout").on("click", function() {
-            localStorage.clear();
-        })
+    $("#logout").on("click", function() {
+        localStorage.clear();
+    })
     </script>
 
+<style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
-	</body>
+
+.container2 {
+  font-size: 100px;
+  text-align: center;
+  margin: 40px auto 0px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: Righteous;
+  color: white;
+  max-width: 1150px;
+}
+
+.container2 span {
+  text-shadow: -1px 0 0px #66d8ff, 0 1px 0px #7f7f7f, -2px 1px 0px #66d8ff, -1px 2px 0px #7f7f7f, -3px 2px 0px #66d8ff, -2px 3px 0px #7f7f7f, -4px 3px 0px #66d8ff, -3px 4px 0px #7f7f7f, -5px 4px 0px #66d8ff, -4px 5px 0px #7f7f7f, -6px 5px 0px #66d8ff, -5px 6px 15px #000000;
+  display: inline-block;
+  position: relative;
+  padding: 0px 6px; 
+  transition: 0.8s;
+  transform: rotateZ(0deg);
+}
+
+.container2:hover {
+  cursor: pointer;
+}
+
+.container2 span.active {
+  transform: rotateZ(360deg) /*skewX(-15deg) translateX(16px)*/;
+}
+
+
+</style>
+
+<!-- java animation -->
+<script type="text/javascript">
+    ( function( $ ) {
+    /**
+     * span-letters.js
+     * 
+     * Example usage: jQuery('.selector').spanLetters();
+     */
+    $.fn.spanLetters = function() {
+        // Loop through each element on which this function has been called
+        this.each( function() {              
+            // Scope the variables
+            var words, i, text;  
+            // Make an array with each letter of the string as a value
+            words = $( this ).text().split( '' );
+
+            // Loop through the letters and wrap each one in a span
+            for ( i = 0; i in words; i++ ) {
+                words[i] = '<span class="sl' + ( i + 1 ) + ' span-letter">' + words[i] + '</span>'
+            };
+            // Join our array of span-wrapped letters back into a string
+            text = words.join( '' );
+
+            // Replace the original string with the new string
+            $( this ).html( text );
+        })
+    }
+}( jQuery ));
+
+// Call spanLetters on our target
+$( ".container2" ).spanLetters();
+
+targets = $( ".container2 span" ); // Select our spans
+duration = 200; // Set duration of the effect here
+speed = 100; // Set animation speed through the letters here
+infiniteLoop = true // Set whether animation should keep triggering
+
+// Add the animation class to the letter, then remove it later
+function animateLetter( value ) {
+  if ( turnedOn ) {
+    $( value ).addClass( "active" );
+    setTimeout( function() {
+      stopAnimateLetter( value );  
+    }, duration );   
+  } 
+};
+
+// Remove the animation class from the letter
+function stopAnimateLetter( value ) {
+  $( value ).removeClass( "active" );
+};
+
+// Trigger function
+function startEverything() {
+  // Loop through our collection of spans
+  targets.each( function( index, value ) {
+    // Sequentially delay the firing of the animation through the letters
+    timer = setTimeout( function() {
+      animateLetter( value );
+    }, speed * index );
+  });    
+  // No looping if trigger was a click
+  if ( clicked ) {
+    clicked = false; 
+  } else {
+    console.log( index );
+    // Logic for infinite loop
+    if ( infiniteLoop ) { // If looping is on
+      if ( turnedOn ) { // If animation is still happening
+        setTimeout( function() {
+          startEverything();  
+        }, speed * index );
+      }  
+    } 
+  }  
+}
+
+// Kill everything function
+function stopEverything() {
+  clearTimeout( timer );
+  turnedOn = false;
+  // Delay the kill just a bit
+  setTimeout( function() {
+    targets.each( function( index, value ) {
+      stopAnimateLetter( value );
+    });
+  }, 200 );
+}
+
+// Hover trigger logic
+$( ".container2" )
+    .mouseenter( function() {
+        turnedOn = true;
+        clicked = false;
+        startEverything(); 
+    })
+    .mouseleave( function() {
+        stopEverything();
+
+    });
+
+</script>
+
+
+</body>
+
 </html>
