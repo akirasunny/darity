@@ -4,6 +4,7 @@ var express = require("express");
 var method = require("method-override");
 var body = require("body-parser");
 var exphbs = require("express-handlebars");
+var path = require("path");
 
 var db = require("./models");
 
@@ -12,7 +13,7 @@ var port = process.env.PORT || 3000;
 
 // app set-ups
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(body.urlencoded({extended: false}));
 app.use(method("_method"));
 app.engine("handlebars", exphbs({defaultLayout: "main"}));

@@ -3,24 +3,24 @@
     <div class="row">
     			<div class="col-md-2"></div>
 			<div class="col-md-8">
+				<form action="/sponsors/edit/{{posts.id}}?_method=PUT" method="POST">
 					<div action="" class="form-group">
-					<form action="/sponsors/edit/{{posts.id}}?_method=PUT" method="POST">
-					<input type="hidden" class="form-control" name="id" id="sponsorid">
+					<input type="hidden" class="form-control" name="id" id="sponsorid" value={{posts.id}}>
 						<label for="title">Title:</label>
 						<input placeholder="Post Title" type="text" class="form-control" name="title" value="{{posts.title}}">
 						<br />
 
 						<label for="body">Body:</label>
-						<textarea placeholder="Post Body" class="form-control" rows="10" name="text" value="{{posts.text}}"></textarea>
+						<textarea placeholder="Post Body" class="form-control" rows="10" name="text">{{posts.text}}</textarea>
 
 						<label for="body">Points:</label>
-						<textarea placeholder="Points" class="form-control" rows="1" name="points" value="{{posts.points}}"></textarea>
+						<textarea placeholder="Points" class="form-control" rows="1" name="points">{{posts.points}}</textarea>
 
 						<label for="body">Category:</label>
-						<textarea placeholder="Category" class="form-control" rows="1" name="category" value="{{posts.category}}"></textarea>
+						<textarea placeholder="Category" class="form-control" rows="1" name="category">{{posts.category}}</textarea>
 
 						<br />
-						<button type="submit" class="btn btn-dark btn-lg js-scroll-trigger submit" id="addpost">Finish Editing</button>
+						<button type="submit" class="btn btn-dark btn-lg js-scroll-trigger submit" id="addpost">Update Post</button>
 					</div>
 				</form>
 			</div>

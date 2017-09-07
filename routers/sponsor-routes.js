@@ -87,6 +87,8 @@ module.exports = function(app) {
 	});
 
 	app.put("/sponsors/edit/:id", function(req, res) {
-		console.log(req.body);
-	})
+		db.post.update(req.body, {where: {id: req.params.id}}).then(function() {
+			res.redirect("/sponsors");
+		});
+	});
 }
