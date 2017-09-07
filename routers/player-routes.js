@@ -20,15 +20,6 @@ module.exports = function(app) {
 		});
 	});
 
-	app.post("/newplayer", function(req, res) {
-		db.player.create({
-			name: req.body.name,
-			email: sha1(req.body.email)
-		}).then(function(data) {
-			res.send({id: data.dataValues.id});
-		});
-	});
-
 	app.post("/join/:id",function(req, res) {
 		db.post.findAll({
 			where: {
@@ -42,6 +33,26 @@ module.exports = function(app) {
 		}).then(function(data) {
 			res.redirect("/players");
 		});
-	});
-}
 
+app.post("/newplayer", function(req, res) {
+		db.player.create({
+			name: req.body.name,
+			email: sha1(req.body.email)
+		}).then(function(data) {
+			console.log(data.dataValues.id)
+		})
+	});
+
+	app.post("/player-login", function(req, res) {
+		var username = req.body.name;
+		var email = sha1(req.body.email);
+		db.player.findOne({
+			where: {
+				name: username,
+				email: email
+			}
+		}).then(function(data) {
+			res.send({id: data.dataValues.id});
+		});
+	});
+};

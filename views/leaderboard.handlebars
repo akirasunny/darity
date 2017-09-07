@@ -2,4 +2,42 @@
     <div class="text-vertical-center">
         <h2>LEADERBOARD</h2>
     </div>
+
+	<h2>Top Sponsors</h2>
+	<div id="sponsors">
+	<ol>
+	{{#each sponsors}}
+		<li>Name: {{name}}<br/>
+		Points: {{points}}</li>
+	{{/each}}
+	</ol>
+	</div>
+
+	<div id="players">
+	<ol>
+	{{#each players}}
+		<li>Name: {{name}}<br/>
+		Points: {{points}}</li>
+	{{/each}}
+	</ol>
+	</div>
+
 </header>
+
+<script>
+$(document).ready(function() {
+	$.get("/api/sponsors", function(event) {
+		console.log(event.substring(event.indexOf("<div id="), event.indexOf("</header>")));
+		var content = event.substring(event.indexOf("<div id="), event.indexOf("</header>"));
+		$(".header").append(content);
+	});
+
+	$.get("/api/players", function(event) {
+		console.log(event.substring(event.indexOf("<div id="), event.indexOf("</header>")));
+		var content = event.substring(event.indexOf("<div id="), event.indexOf("</header>"));
+		$(".header").append(content);
+	});
+});
+</script>
+
+  

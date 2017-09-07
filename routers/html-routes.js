@@ -57,6 +57,10 @@ app.get("/post", function(req, res) {
 app.get("/login", function(req, res) {
     res.render("login");
   });
+
+app.get("/login2", function(req, res) {
+    res.render("login2");
+  });
 };
 
 

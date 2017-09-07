@@ -2,6 +2,7 @@ var db = require("../models");
 var sha1 = require("sha1");
 
 module.exports = function(app) {
+
 	app.post("/sponsors", function(req, res) {
 		db.post.findAll({
 			include: [db.sponsor],
