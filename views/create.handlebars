@@ -5,7 +5,7 @@
 			<div class="col-md-8">
 				<form action="/create/post" method="POST">
 					<div action="" class="form-group">
-					<input placeholder="Post Title" type="hidden" class="form-control" name="id">
+					<input type="hidden" class="form-control" name="id" id="sponsorid">
 						<label for="title">Title:</label>
 						<input placeholder="Post Title" type="text" class="form-control" name="title">
 						<br />
@@ -29,5 +29,7 @@
 </header>
 
 <script>
-
+$(document).ready(function() {
+	$("#sponsorid").attr("value", localStorage.sponsorId);
+});
 </script>

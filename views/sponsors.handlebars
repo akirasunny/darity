@@ -2,8 +2,23 @@
     <div class="text-vertical-center">
         <h1>SPONSORS</h1>
         <a href="/create"><button class="createpost"> ADD NEW POST + </button></a>
-
-
     </div>
-
+    <div>
+	{{#each posts}}
+		<ul>
+		<li>Title: {{title}}</li>
+		<li>Points: {{points}}</li>
+		<li>Category: {{category}}</li>
+		<li>Created: {{createdAt}}</li>
+		</ul>
+	{{/each}}
+    </div>
 </header>
+
+<script>
+$(document).ready(function() {
+	$.post("/sponsors", {id: localStorage.sponsorId}, function(event) {
+		event.preventDefault();
+	  	})
+	});
+</script>

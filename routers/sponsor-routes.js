@@ -9,6 +9,23 @@ module.exports = function(app) {
 			res.json(data);
 		});
 	});
+
+	app.post("/sponsors", function(req, res) {
+		db.post.findAll({
+			include: [db.sponsor],
+			where: {
+				sponsorId: req.body.id
+			}
+
+		}).then(function(data) {
+			var array = [];
+			for (var i = 0; i < data.length; i++) {
+				array.push(data[i].dataValues)
+			}
+			console.log(array)
+			res.render("sponsors", {posts: array});
+		});
+	});
   
 	app.post("/newsponsor", function(req, res) {
 		db.sponsor.create({
@@ -38,11 +55,13 @@ module.exports = function(app) {
 		var text = req.body.text;
 		var points = req.body.points;
 		var category = req.body.category;
+		var sponsorId = req.body.id;
 		db.post.create({
 			title: title,
 			text: text,
 			points: points,
-			category: category
+			category: category,
+			sponsorId: sponsorId
 		}).then(function(data) {
 			res.redirect("/sponsors")
 		})
