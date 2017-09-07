@@ -61,9 +61,15 @@
 
     else {
     $.post("/newsponsor", obj, function(res) {
-      localStorage.setItem("sponsorId", res.id);
-      console.log(res.id);
-      window.location.href = "/sponsors"
+      if (res === "invalid") {
+        alert("Username has already existed. Please try another one.");
+        window.location.href = "/login";
+      }
+      else{
+        localStorage.setItem("sponsorId", res.id);
+        console.log(res.id);
+        window.location.href = "/sponsors"
+      }
     })
     $("#name").val("");
     $("#email").val("");
@@ -79,10 +85,16 @@
       email: $("#loginemail").val().trim()
     }
   $.post("/sponsor-login", obj, function(res) {
-    localStorage.setItem("sponsorId", res.id);
-    console.log(res.id)
-    window.location.href = "/sponsors"
-    })
+    if (res === "invalid") {
+      alert("Invalid username or password. Please try again or sign-up.");
+      window.location.href = "/login2"
+    }
+    else {
+      localStorage.setItem("sponsorId", res.id);
+      console.log(res.id)
+      window.location.href = "/sponsors"
+    }
+    });
   };
 
 </script>

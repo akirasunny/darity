@@ -20,12 +20,23 @@ module.exports = function(app) {
 	});
   
 	app.post("/newsponsor", function(req, res) {
-		db.sponsor.create({
-			name: req.body.name,
-			email: sha1(req.body.email)
+		db.sponsor.findAll({
+			where: {
+				name: req.body.name
+			}
 		}).then(function(data) {
-			console.log(data.dataValues.id)
-		})
+			if (data === null) {
+				db.sponsor.create({
+					name: req.body.name,
+					email: sha1(req.body.email)
+				}).then(function() {
+					res.redirect("/login")
+				});
+			}
+			else {
+				res.send("invalid");
+			};
+		});
 	});
 
 	app.post("/sponsor-login", function(req, res) {
@@ -37,7 +48,12 @@ module.exports = function(app) {
 				email: email
 			}
 		}).then(function(data) {
-			res.send({id: data.dataValues.id});
+			if (data === null) {
+				res.send("invalid");
+			}
+			else{
+				res.send({id: data.dataValues.id});
+			}
 		});
 	});
 
