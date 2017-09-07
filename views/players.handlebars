@@ -5,6 +5,7 @@
     <div id="posts">
     {{#each posts}}
     <form action="/join/{{this.id}}" method="POST">
+    	<input type="hidden" name="playerid" value="" class="playerid">
 		<ul>
 		<li>Title: {{title}}</li>
 		<li>Points: {{points}}</li>
@@ -13,10 +14,12 @@
 		<button type="submit" id="join">Join it!</button>
 		</ul>
 	</form>
-    {{/each}}
-    </div>
+	{{/each}}
+	</div>
 </header>
 
 <script>
-
+$(document).ready(function() {
+	$(".playerid").attr("value", localStorage.playerId);
+});
 </script>

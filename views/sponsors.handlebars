@@ -24,7 +24,6 @@
 <script>
 $(document).ready(function() {
 	$.post("/sponsors", {id: localStorage.sponsorId}, function(event) {
-		console.log(event.substring(event.indexOf("<div id="), event.indexOf("</header>")));
 		var content = event.substring(event.indexOf("<div id="), event.indexOf("</header>"));
 		$(".header").append(content);
 	});
