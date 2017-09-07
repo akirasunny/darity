@@ -9,18 +9,12 @@
 <div class="row">
 	<div id="posts" class="col-sm-9 handleposts">
 	{{#each posts}}
+	<form action="/sponsors/edit/{{id}}" method="POST">
 		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
 		<li><h2><strong><u>{{title}}</u></strong></h2></li>
 		<li>Reward: {{points}}</li>
 		<li>{{createdAt}}</li>
-	<form action="/sponsors/edit/{{id}}" method="POST">
-		<ul>
-		<li>Title: {{title}}</li>
-		<li>Points: {{points}}</li>
-		<li>Category: {{category}}</li>
-		<li>Created: {{createdAt}}</li>
 		<li><button type="submit">Edit</button></li>
-
 		</ul>
 	</form>
 	{{/each}}
