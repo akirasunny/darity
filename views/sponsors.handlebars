@@ -1,9 +1,9 @@
 <header class="header" id="top">
-    <div class="text-vertical-center">
-        <h1>SPONSORS</h1>
-        <a href="/create"><button class="createpost"> ADD NEW POST + </button></a>
-    </div>
-    <div>
+	<div class="text-vertical-center">
+		<h1>SPONSORS</h1>
+		<a href="/create"><button class="createpost"> ADD NEW POST + </button></a>
+	</div>
+	<div id="posts">
 	{{#each posts}}
 		<ul>
 		<li>Title: {{title}}</li>
@@ -12,13 +12,15 @@
 		<li>Created: {{createdAt}}</li>
 		</ul>
 	{{/each}}
-    </div>
+	</div>
 </header>
 
 <script>
 $(document).ready(function() {
 	$.post("/sponsors", {id: localStorage.sponsorId}, function(event) {
-		event.preventDefault();
-	  	})
+		console.log(event.substring(event.indexOf("<div id="), event.indexOf("</header>")));
+		var content = event.substring(event.indexOf("<div id="), event.indexOf("</header>"));
+		$(".header").append(content);
 	});
+});
 </script>
