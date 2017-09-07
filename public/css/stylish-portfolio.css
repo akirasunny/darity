@@ -21,14 +21,14 @@ body {
 }
 
 .text-vertical-center {
-    display: table-cell;
+
     text-align: center;
     vertical-align: middle;
     color: white;
 }
 
 .vertical-center {
-    display: table-cell;
+
     vertical-align: middle;
     color: white;
     position: relative;
