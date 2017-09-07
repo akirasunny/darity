@@ -56,6 +56,21 @@ module.exports = function(app) {
 			sponsorId: sponsorId
 		}).then(function(data) {
 			res.redirect("/sponsors")
-		})
+		});
+	});
+
+	app.post("/sponsors/edit/:id", function(req, res) {
+		db.post.findOne({
+			where: {
+				id: req.params.id
+			}
+		}).then(function(data) {
+			console.log(data.dataValues);
+			res.render("edit", {posts: data.dataValues});
+		});
+	});
+
+	app.put("/sponsors/edit/:id", function(req, res) {
+		console.log(req.body);
 	})
 }
