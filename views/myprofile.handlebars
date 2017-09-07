@@ -1,5 +1,24 @@
 <header class="header" id="top">
-    <div class="text-vertical-center">
-        <h1>MY PROFILE</h1>
-    </div>
+	<div class="text-vertical-center">
+		<h1>MY PROFILE</h1>
+	</div>
+	<div id="posts">
+	{{#each posts}}
+		<ul>
+		<li>Title: {{title}}</li>
+		<li>Points: {{points}}</li>
+		<li>Category: {{category}}</li>
+		<li>Created: {{createdAt}}</li>
+		</ul>
+	{{/each}}
+	</div>
 </header>
+
+<script>
+$(document).ready(function() {
+	$.post("/myprofile", {id: localStorage.playerId}, function(data) {
+		var content = data.substring(data.indexOf("<div id="), data.indexOf("</header>"));
+		$("#posts").html(content);
+	})
+})
+</script>
