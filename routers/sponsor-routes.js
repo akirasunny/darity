@@ -22,7 +22,6 @@ module.exports = function(app) {
 			for (var i = 0; i < data.length; i++) {
 				array.push(data[i].dataValues)
 			}
-			console.log(array)
 			res.render("sponsors", {posts: array});
 		});
 	});
