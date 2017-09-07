@@ -7,13 +7,13 @@
 
 <br/>
 <div class="row">
-	<div id="posts" class="col-sm-9 handleposts">
+	<div id="posts" class="col-sm-9 handleposts" style="overflow: auto; max-height: 70%">
 	{{#each posts}}
 	<form action="/sponsors/edit/{{id}}" method="POST">
 		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
-		<li><h2><strong><u>{{title}}</u></strong></h2></li>
+		<li><h2><u>{{title}}</u></h2></li>
+		<li>{{text}}</li>
 		<li>Reward: {{points}}</li>
-		<li>{{createdAt}}</li>
 		<li><button type="submit">Edit</button></li>
 		</ul>
 	</form>
@@ -56,10 +56,11 @@ $(document).ready(function() {
 	position: fixed;
 	left: 8.33%;
 	border-radius: 10px;
+
 }
 
 .createpost {
-  	left: 90%;
+  	left: 86%;
     position: fixed;
     padding: 10px;
     font-size: 20px;
