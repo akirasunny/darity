@@ -32,12 +32,23 @@ module.exports = function(app) {
 	});
 
 	app.post("/newplayer", function(req, res) {
-		db.player.create({
-			name: req.body.name,
-			email: sha1(req.body.email)
+		db.player.findAll({
+			where: {
+				name: req.body.name
+			}
 		}).then(function(data) {
-			res.redirect("/login2");
-		})
+			if (data !== null) {
+				db.player.create({
+					name: req.body.name,
+					email: sha1(req.body.email)
+				}).then(function(data) {
+					res.redirect("/login2");
+				});
+			}
+			else {
+				res.send("invalid");
+			};
+		});
 	});
 
 	app.post("/player-login", function(req, res) {
@@ -49,7 +60,12 @@ module.exports = function(app) {
 				email: email
 			}
 		}).then(function(data) {
-			res.send({id: data.dataValues.id});
+			if (data === null) {
+				res.send("invalid");
+			}
+			else {
+				res.send({id: data.dataValues.id});
+			}
 		});
 	});
 
