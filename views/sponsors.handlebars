@@ -1,13 +1,18 @@
 <header class="header" id="top">
 	<div class="text-vertical-center row">
 
-	<div class="col-sm-12">
-		<h1>SPONSORS</h1>
-		<a href="/create"><button class="createpost"> ADD NEW POST + </button></a>
+	<div class="col-sm-6">
+		<h1 id="title1">SPONSORS</h1>
+		<a href="/create"><button class="createpost">New Post +</button></a>
 
 <br/>
-	<div id="posts">
+<div class="row">
+	<div id="posts" class="col-sm-9 handleposts">
 	{{#each posts}}
+		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
+		<li><h2><strong><u>{{title}}</u></strong></h2></li>
+		<li>Reward: {{points}}</li>
+		<li>{{createdAt}}</li>
 	<form action="/sponsors/edit/{{id}}" method="POST">
 		<ul>
 		<li>Title: {{title}}</li>
@@ -15,6 +20,7 @@
 		<li>Category: {{category}}</li>
 		<li>Created: {{createdAt}}</li>
 		<li><button type="submit">Edit</button></li>
+
 		</ul>
 	</form>
 	{{/each}}
@@ -32,3 +38,37 @@ $(document).ready(function() {
 	});
 });
 </script>
+
+<style>
+#title1 {
+	text-align: center;
+}
+
+.singlepost {
+	border-color: white;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 10px;
+	background-color: #3000D8;
+	box-shadow: 4px 0px 5px;
+}
+#singlepost {
+	padding: 20px;
+}
+
+#posts {
+	background-color: dodgerblue;
+	margin: 3px;
+	color: white;
+	position: fixed;
+	left: 8.33%;
+}
+
+.createpost {
+  	left: 90%;
+    position: fixed;
+    padding: 10px;
+    font-size: 20px;
+    font: bold;
+}
+</style>

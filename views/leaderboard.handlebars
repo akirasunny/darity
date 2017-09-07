@@ -2,9 +2,11 @@
     <div class="text-vertical-center">
         <h2>LEADERBOARD</h2>
     </div>
+</header>
 
-	<h2>Top Sponsors</h2>
-	<div id="sponsors">
+<div class="container">
+<div class="row">
+	<div id="sponsors" class="col-sm-6" >
 	<ol>
 	{{#each sponsors}}
 		<li>Name: {{name}}<br/>
@@ -13,7 +15,7 @@
 	</ol>
 	</div>
 
-	<div id="players">
+	<div id="players" class="col-sm-6" >
 	<ol>
 	{{#each players}}
 		<li>Name: {{name}}<br/>
@@ -21,23 +23,34 @@
 	{{/each}}
 	</ol>
 	</div>
-
-</header>
+</div>
+</div>
 
 <script>
 $(document).ready(function() {
 	$.get("/api/sponsors", function(event) {
-		console.log(event.substring(event.indexOf("<div id="), event.indexOf("</header>")));
-		var content = event.substring(event.indexOf("<div id="), event.indexOf("</header>"));
+		console.log(event);
+		var content = event.substring(event.indexOf("<div id='sponsors'"), event.indexOf("</header>"));
 		$(".header").append(content);
 	});
 
 	$.get("/api/players", function(event) {
-		console.log(event.substring(event.indexOf("<div id="), event.indexOf("</header>")));
-		var content = event.substring(event.indexOf("<div id="), event.indexOf("</header>"));
+		console.log(event);
+		var content = event.substring(event.indexOf("<div id='players'"), event.indexOf("</header>"));
 		$(".header").append(content);
 	});
 });
 </script>
+
+<style>
+ol {
+	border-style: solid;
+	border-color: white;
+	border-radius: 10px;
+	text-align: left;
+	color: white;
+	position: static;
+}
+</style>
 
   
