@@ -2,18 +2,6 @@ var db = require("../models");
 var sha1 = require("sha1");
 
 module.exports = function(app) {
-	app.get("/api/sponsors", function(req, res) {
-		db.sponsor.findAll({
-			order: [['points', 'DESC']]
-		}).then(function(data) {
-			console.log(data);
-		var array = [];
-			for (var i = 0; i < data.length; i++) {
-				array.push(data[i].dataValues)
-			}
-			res.render("leaderboard", {sponsors: array});
-		});
-	});
 
 	app.post("/sponsors", function(req, res) {
 		db.post.findAll({

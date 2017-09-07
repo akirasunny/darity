@@ -1,27 +1,38 @@
-var db = require("../models");
+var db = require("../models")
 var sha1 = require("sha1");
 
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
 module.exports = function(app) {
-	app.get("/api/players", function(req, res) {
-		db.player.findAll({
-			order: [['points', 'DESC']]
-		}).then(function(data) {
-			console.log(data);
-		var array = [];
-			for (var i = 0; i < data.length; i++) {
-				array.push(data[i].dataValues)
-			}
-			res.render("leaderboard", {players: array});
+	app.get("/players", function(req, res) {
+		db.post.findAll({}).then(function(data) {
+			var shuffled = shuffle(data);
+			res.render("players", {posts: shuffled});
 		});
 	});
 
-
-	app.get("/api/posts", function(req, res) {
-	  db.post.findAll({})
-	  .then(function(data) {
-	  	res.json(data)
-	  });
-	});
+	app.post("/join/:id",function(req, res) {
+		db.post.findAll({
+			where: {
+				id: req.params.id
+			},
+			include: [{
+				through: {
+					attributes: ["playerId", "postId"]
+				}
+			}]
+		}).then(function(data) {
+			res.redirect("/players");
+		});
 
 app.post("/newplayer", function(req, res) {
 		db.player.create({
