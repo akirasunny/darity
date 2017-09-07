@@ -2,4 +2,24 @@
     <div class="text-vertical-center">
         <h1>PLAYERS</h1>
     </div>
+    <div id="posts">
+    {{#each posts}}
+    <form action="/join/{{this.id}}" method="POST">
+    	<input type="hidden" name="playerid" value="" class="playerid">
+		<ul>
+		<li>Title: {{title}}</li>
+		<li>Points: {{points}}</li>
+		<li>Category: {{category}}</li>
+		<li>Created: {{createdAt}}</li>
+		<button type="submit" id="join">Join it!</button>
+		</ul>
+	</form>
+	{{/each}}
+	</div>
 </header>
+
+<script>
+$(document).ready(function() {
+	$(".playerid").attr("value", localStorage.playerId);
+});
+</script>

@@ -4,7 +4,7 @@
 
 // Dependencies
 // =============================================================
-var path = require("path");
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -28,10 +28,6 @@ app.get("/leaderboard", function(req, res) {
 
 app.get("/myprofile", function(req, res) {
     res.render("myprofile");
-  });
-
-app.get("/players", function(req, res) {
-    res.render("players");
   });
 
 app.get("/portal", function(req, res) {

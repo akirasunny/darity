@@ -13,7 +13,16 @@
 		<li><h2><strong><u>{{title}}</u></strong></h2></li>
 		<li>Reward: {{points}}</li>
 		<li>{{createdAt}}</li>
+	<form action="/sponsors/edit/{{id}}" method="POST">
+		<ul>
+		<li>Title: {{title}}</li>
+		<li>Points: {{points}}</li>
+		<li>Category: {{category}}</li>
+		<li>Created: {{createdAt}}</li>
+		<li><button type="submit">Edit</button></li>
+
 		</ul>
+	</form>
 	{{/each}}
 	</div>
 </div>
@@ -24,7 +33,6 @@
 <script>
 $(document).ready(function() {
 	$.post("/sponsors", {id: localStorage.sponsorId}, function(event) {
-		console.log(event.substring(event.indexOf("<div id="), event.indexOf("</header>")));
 		var content = event.substring(event.indexOf("<div id="), event.indexOf("</header>"));
 		$(".header").append(content);
 	});
