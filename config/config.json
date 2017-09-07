@@ -9,14 +9,14 @@
   "test": {
     "username": "h3awiwzqnnwqn9mu",
     "password": "w4rreywldro1jt3z",
-    "database": "database_production",
+    "database": "y73oknnxwt9ar1kb",
     "host": " ffn96u87j5ogvehy.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "production": {
     "username": "h3awiwzqnnwqn9mu",
     "password": "w4rreywldro1jt3z",
-    "database": "database_production",
+    "database": "y73oknnxwt9ar1kb",
     "host": " ffn96u87j5ogvehy.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
