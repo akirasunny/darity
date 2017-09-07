@@ -1,40 +1,37 @@
 <header class="header" id="top">
 <div class="vertical-center container">
+<h1 id="title1"> Player Login </h1>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-sm-6">
       <form>
-        <div class="container">
-          <label><b>Username</b></label>
+        <div id="signupbox" class="container">
+          <h1> Sign Up </h1>
+          <label><b>Username: </b></label>
             <input type="text" placeholder="Enter Username" name="name" id="name">
             <br>
-            <label><b>Email</b></label>
+            <label><b>Password: </b></label>
           <input type="password" placeholder="Enter Email" name="email" id="email">
             <br>
-          <button type="submit" id="signup">Sign Up</button>
-              <input type="checkbox" checked="checked"> Remember me
+          <button class="button" type="submit" id="signup">Sign Up</button>
               <br>
               <div class="container" style="background-color:f1f1f1">
-              <button type="button" class="cancelbtn">Cancel</button>
-              <span class="psw">Forgot <a href="#">Email?</a></span>
             </div>
           </div>
         </form>
       </div>
-    <div class="col-lg-6">
+    <div class="col-sm-6">
       <form>
-        <div class="container">
-          <label><b>Username</b></label>
+        <div id="loginbox" class="container">
+        <h1> Log In </h1>
+          <label><b>Username: </b></label>
             <input type="text" placeholder="Enter Username" name="loginname" id="loginname">
               <br>
-            <label><b>Email</b></label>
+            <label><b>Password: </b></label>
           <input type="password" placeholder="Enter Email" name="loginemail" id="loginemail">
               <br>
-          <button type="submit" id="login">Login</button>
-              <input type="checkbox" checked="checked"> Remember me
+          <button class="button" type="submit" id="login">Login</button>
               <br>
               <div class="container" style="background-color:f1f1f1">
-              <button type="button" class="cancelbtn">Cancel</button>
-              <span class="psw">Forgot <a href="#">Email?</a></span>
             </div>
           </div>
         </div>
@@ -90,3 +87,38 @@
   };
 
 </script>
+
+<style>
+
+#title1 {
+  font-size: 54px;
+  text-align: center;
+}
+input {
+  border-radius: 3px;
+}
+
+.row {
+  margin: auto;
+  
+}
+
+.button {
+  border-radius: 8px;
+  background-color: white;
+  border-style: solid;
+  border-color: grey;
+}
+
+#signupbox, #loginbox {
+  border-style: solid;
+  border-color: white;
+  text-align: right;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px auto;
+  position: relative;
+  float: right;
+  width: 300px;
+}
+</style>
