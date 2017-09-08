@@ -22,9 +22,6 @@ app.get("/faqs", function(req, res) {
     res.render("faqs");
   });
 
-app.get("/leaderboard", function(req, res) {
-    res.render("leaderboard");
-  });
 
 app.get("/myprofile", function(req, res) {
     res.render("myprofile");

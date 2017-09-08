@@ -25,6 +25,7 @@ require("./routers/html-routes.js")(app);
 require("./routers/moderator-routes.js")(app);
 require("./routers/player-routes.js")(app);
 require("./routers/sponsor-routes")(app);
+require("./routers/api-routes")(app);
 
 db.sequelize.sync().then(function() {
 	app.listen(port, function() {

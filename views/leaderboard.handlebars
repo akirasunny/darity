@@ -2,64 +2,58 @@
     <div class="text-vertical-center">
         <div class="container2">LEADERBOARD</div>
     </div>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 90%">
+                <img class="card-img-top" src="https://i.giphy.com/media/LCdPNT81vlv3y/200_s.gif" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">Top Sponsors</h4>
+                    <p class="card-text">
+                        <ol>
+                            {{#each sponsors}}
+                            <li>Name: {{name}}
+                                <br/> Points: {{points}}</li>
+                            {{/each}}
+                        </ol>
+                    </p>
+                    <a href="./sponsors" class="btn btn-primary">Make Dares</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 90%">
+                <img class="card-img-top" src="http://cdn-static.denofgeek.com/sites/denofgeek/files/7/79//daredevil_comics.jpg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">Top Players</h4>
+                    <p class="card-text">
+                        <ol>
+                            {{#each players}}
+                            <li>Name: {{name}}
+                                <br/> Points: {{points}}</li>
+                            {{/each}}
+                        </ol>
+                    </p>
+                    <a href="./players" class="btn btn-primary">View Dares</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
-
-<div class="container">
-	<div class="row">
-		<div id="sponsors" class="col-sm-6" >
-			<table>
-			{{#each sponsors}}
-				<tr>
-					<td>Username: {{name}}</td>
-					<td>Points: {{points}}</td>
-				</tr>
-			{{/each}}
-			</table>
-		</div>
-
-		<div id="players" class="col-sm-6" >
-			<table>
-			{{#each players}}
-				<tr>
-					<td>Username: {{name}}</td>
-					<td>Points: {{points}}</td>
-				</tr>
-			{{/each}}
-			</table>
-		</div>
-	</div>
-</div>
-
-<script>
-$(document).ready(function() {
-	$.get("/api/sponsors", function(event) {
-		console.log(event);
-		var content = event.substring(event.indexOf("<div id='sponsors'"), event.indexOf("</header>"));
-		$(".body").append(content);
-	});
-
-	$.get("/api/players", function(event) {
-		console.log(event);
-		var content = event.substring(event.indexOf("<div id='players'"), event.indexOf("</header>"));
-		$(".header").append(content);
-	});
-});
-</script>
-
 <style>
 h1 {
-	color: white;
+    color: white;
 }
+
 table {
-	border-style: solid;
-	border-color: white;
-	border-radius: 10px;
-	text-align: left;
-	color: white;
-	position: static;
-	margin: auto;
-	margin: 50px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    text-align: left;
+    color: white;
+    position: static;
+    margin: auto;
+    margin: 50px;
 }
 </style>
-
-  
