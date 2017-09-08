@@ -33,6 +33,8 @@ module.exports = function(app) {
                 }
                                 
                 res.render("leaderboard", { sponsors: array, players: array2 });
+                array = [];
+                array2 = [];
 
             });
 
