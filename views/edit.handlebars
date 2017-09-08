@@ -3,6 +3,7 @@
     <div class="row">
     			<div class="col-md-2"></div>
 			<div class="col-md-8">
+				<h2><strong>EDIT POST</strong></h2>
 				<form action="/sponsors/edit/{{posts.id}}?_method=PUT" method="POST">
 					<div action="" class="form-group">
 					<input type="hidden" class="form-control" name="id" id="sponsorid" value={{posts.id}}>
@@ -29,6 +30,10 @@
 </header>
 
 <style>
+header {
+    background-image: url("../../img/listodopost.jpg");
+}
+
 .header {
 	color: white;
 }

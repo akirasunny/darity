@@ -46,6 +46,14 @@
 </header>
 
 <script>
+$(document).ready(function() {
+  var pid = localStorage.getItem("playerId")
+  console.log(pid)
+  if (pid) {
+    window.location.href = "/players";
+  }
+});
+
   $("#signup").on("click", signUp);
 
   function signUp(event) {
@@ -73,7 +81,8 @@
       else {
         localStorage.setItem("playerId", res.id);
         console.log(res.id);
-        window.location.href = "/players"
+        window.location.href = "/players";
+        alert("You may now log in!")
       };
     });
     $("#name").val("");
@@ -105,6 +114,9 @@
 </script>
 
 <style>
+header {
+    background-image: url("../img/uclafootball.jpg");
+}
 
 #title1 {
   font-size: 70px;
@@ -129,13 +141,15 @@ input {
 #signupbox, #loginbox {
   border-style: solid;
   border-color: white;
+  background-color: dodgerblue;
   text-align: right;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
   margin: 10px auto;
   position: relative;
   float: right;
   width: 300px;
   margin-left: 150px;
+  opacity:.77;
 }
 </style>
