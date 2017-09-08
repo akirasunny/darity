@@ -32,9 +32,17 @@
 $(document).ready(function() {
 	$("#sponsorid").attr("value", localStorage.sponsorId);
 });
+
+if (!localStorage.getItem("sponsorId")) {
+    window.location.href = "/login"
+    }
 </script>
 
 <style>
+header {
+	   background-image: url("../img/listodopost.jpg");
+}
+
 .header {
 	color: white;
 }

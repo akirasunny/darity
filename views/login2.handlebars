@@ -10,11 +10,11 @@
       <form>
         <div id="signupbox" class="container">
           <h1> Sign Up! </h1>
-          <label><b>Username: </b></label>
-            <input type="text" placeholder="Enter Username" name="name" id="name">
+          <label><b>Username:
+            <input type="text" placeholder="Enter Username" name="name" id="name"></b></label>
             <br>
             <label><b>Password: </b></label>
-          <input type="password" placeholder="Enter Email" name="email" id="email">
+          <input type="password" placeholder="Enter Password" name="email" id="email">
             <br>
           <button class="button" type="submit" id="signup">Sign Up</button>
               <br>
@@ -31,7 +31,7 @@
             <input type="text" placeholder="Enter Username" name="loginname" id="loginname">
               <br>
             <label><b>Password: </b></label>
-          <input type="password" placeholder="Enter Email" name="loginemail" id="loginemail">
+          <input type="password" placeholder="Enter Password" name="loginemail" id="loginemail">
               <br>
           <button class="button" type="submit" id="login">Login</button>
               <br>
@@ -76,12 +76,10 @@ $(document).ready(function() {
     $.post("/newplayer", obj, function(res) {
       if (res === "invalid") {
         alert("Username has already existed. Please try another one.");
-        window.location.href = "/login";
       }
       else {
         localStorage.setItem("playerId", res.id);
         console.log(res.id);
-        window.location.href = "/players";
         alert("You may now log in!")
       };
     });

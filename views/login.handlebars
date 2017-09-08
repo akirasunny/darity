@@ -14,7 +14,7 @@
             <input type="text" placeholder="Enter Username" name="name" id="name">
             <br>
             <label><b>Password: </b></label>
-          <input type="password" placeholder="Enter Email" name="email" id="email">
+          <input type="password" placeholder="Enter Password" name="email" id="email">
             <br>
           <button class="button" type="submit" id="signup">Sign Up</button>
               <div class="container" style="background-color:f1f1f1">
@@ -31,7 +31,7 @@
             <input type="text" placeholder="Enter Username" name="loginname" id="loginname">
               <br>
             <label><b>Password: </b></label>
-          <input type="password" placeholder="Enter Email" name="loginemail" id="loginemail">
+          <input type="password" placeholder="Enter Password" name="loginemail" id="loginemail">
               <br>
           <button class="button" type="submit" id="login">Login</button>
               <br>
@@ -76,19 +76,17 @@ else {
       console.log(res);
       if (res === "invalid") {
         alert("Username already exists. Please try another one.");
-        window.location.href = "/login";
       }
       else{
         localStorage.setItem("sponsorId", res.id);
         console.log(res.id);
-        window.location.href = "/sponsors";
         alert("You may now log in!")
       }
     })
     $("#name").val("");
     $("#email").val("");
   }}
-  }; 
+}; 
 
   $("#login").on("click", loginfunction);
 
@@ -101,7 +99,7 @@ else {
   $.post("/sponsor-login", obj, function(res) {
     if (res === "invalid") {
       alert("Invalid username or password. Please try again or sign-up.");
-      window.location.href = "/login2"
+      window.location.href = "/login"
     }
     else {
       localStorage.setItem("sponsorId", res.id);
