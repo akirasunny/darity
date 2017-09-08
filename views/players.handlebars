@@ -2,19 +2,22 @@
     <div class="text-vertical-center">
         <h1>PLAYERS</h1>
     </div>
-    <div id="posts">
+    <div class="container">
+    <div id="posts" class="row">
+    <div class="col-sm-12">
     {{#each posts}}
     <form action="/join/{{this.id}}" method="POST">
     	<input type="hidden" name="playerid" value="" class="playerid">
-		<ul>
+		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
 		<li>Title: {{title}}</li>
 		<li>Points: {{points}}</li>
 		<li>Category: {{category}}</li>
 		<li>Created: {{createdAt}}</li>
-		<button type="submit" id="join">Join it!</button>
+		<button type="submit" id="join">Save</button>
 		</ul>
 	</form>
 	{{/each}}
+	</div>
 	</div>
 </header>
 
@@ -22,4 +25,39 @@
 $(document).ready(function() {
 	$(".playerid").attr("value", localStorage.playerId);
 });
+
+console.log($(".container").css("width"))
 </script>
+
+<style>
+#title1 {
+	text-align: center;
+}
+
+.singlepost {
+	border-color: white;
+	border-width: 2px;
+	border-style: solid;
+}
+#singlepost {
+	padding: 30px;
+}
+
+#posts {
+	background-color: black;
+	opacity: .77;
+	padding: 20px;
+	margin: 3px auto;
+	color: white;
+	left: 8.33%;
+	border-radius: 10px;
+}
+
+.createpost {
+  	left: 90%;
+    position: fixed;
+    padding: 10px;
+    font-size: 20px;
+    font: bold;
+}
+</style>

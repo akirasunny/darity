@@ -1,29 +1,33 @@
 <header class="header" id="top">
     <div class="text-vertical-center">
-        <h2>LEADERBOARD</h2>
+        <div class="container2">LEADERBOARD</div>
     </div>
 </header>
 
 <div class="container">
-<div class="row">
-	<div id="sponsors" class="col-sm-6" >
-	<ol>
-	{{#each sponsors}}
-		<li>Name: {{name}}<br/>
-		Points: {{points}}</li>
-	{{/each}}
-	</ol>
-	</div>
+	<div class="row">
+		<div id="sponsors" class="col-sm-6" >
+			<table>
+			{{#each sponsors}}
+				<tr>
+					<td>Username: {{name}}</td>
+					<td>Points: {{points}}</td>
+				</tr>
+			{{/each}}
+			</table>
+		</div>
 
-	<div id="players" class="col-sm-6" >
-	<ol>
-	{{#each players}}
-		<li>Name: {{name}}<br/>
-		Points: {{points}}</li>
-	{{/each}}
-	</ol>
+		<div id="players" class="col-sm-6" >
+			<table>
+			{{#each players}}
+				<tr>
+					<td>Username: {{name}}</td>
+					<td>Points: {{points}}</td>
+				</tr>
+			{{/each}}
+			</table>
+		</div>
 	</div>
-</div>
 </div>
 
 <script>
@@ -31,7 +35,7 @@ $(document).ready(function() {
 	$.get("/api/sponsors", function(event) {
 		console.log(event);
 		var content = event.substring(event.indexOf("<div id='sponsors'"), event.indexOf("</header>"));
-		$(".header").append(content);
+		$(".body").append(content);
 	});
 
 	$.get("/api/players", function(event) {
@@ -43,13 +47,18 @@ $(document).ready(function() {
 </script>
 
 <style>
-ol {
+h1 {
+	color: white;
+}
+table {
 	border-style: solid;
 	border-color: white;
 	border-radius: 10px;
 	text-align: left;
 	color: white;
 	position: static;
+	margin: auto;
+	margin: 50px;
 }
 </style>
 

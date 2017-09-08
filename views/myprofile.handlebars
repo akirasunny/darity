@@ -1,10 +1,13 @@
 <header class="header" id="top">
 	<div class="text-vertical-center">
-		<h1>MY PROFILE</h1>
-	</div>
+        <div class="container2">MY DARES
+        </div>
+    <div class="points"><strong>
+	   Current Points: 0
+	</strong></div>
 	<div id="posts">
 	{{#each posts}}
-		<ul>
+		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
 		<li>Title: {{title}}</li>
 		<li>Points: {{points}}</li>
 		<li>Category: {{category}}</li>
@@ -15,6 +18,7 @@
 </header>
 
 <script>
+var points = 0;
 $(document).ready(function() {
 	$.post("/myprofile", {id: localStorage.playerId}, function(data) {
 		var content = data.substring(data.indexOf("<div id="), data.indexOf("</header>"));
@@ -22,3 +26,43 @@ $(document).ready(function() {
 	})
 })
 </script>
+
+<style>
+#title1 {
+	text-align: center;
+}
+
+.points {
+	color: white;
+	font-size: 20px;
+	text-align: right;
+	margin-right: 2%;
+}
+
+.singlepost {
+	border-color: white;
+	border-width: 2px;
+	border-style: solid;
+}
+#singlepost {
+	padding: 30px;
+}
+
+#posts {
+	background-color: black;
+	opacity: .77;
+	padding: 20px;
+	margin: 3px auto;
+	color: white;
+	left: 8.33%;
+	border-radius: 10px;
+}
+
+.createpost {
+  	left: 90%;
+    position: fixed;
+    padding: 10px;
+    font-size: 20px;
+    font: bold;
+}
+</style>

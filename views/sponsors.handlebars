@@ -2,18 +2,18 @@
 	<div class="text-vertical-center row">
 
 	<div class="col-sm-6">
-		<h1 id="title1">SPONSORS</h1>
+        <div class="container2">SPONSOR</div>
 		<a href="/create"><button class="createpost">New Post +</button></a>
 
 <br/>
 <div class="row">
-	<div id="posts" class="col-sm-9 handleposts">
+	<div id="posts" class="col-sm-9 handleposts" style="overflow: auto; max-height: 70%">
 	{{#each posts}}
 	<form action="/sponsors/edit/{{id}}" method="POST">
 		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
-		<li><h2><strong><u>{{title}}</u></strong></h2></li>
+		<li><h2><u>{{title}}</u></h2></li>
+		<li>{{text}}</li>
 		<li>Reward: {{points}}</li>
-		<li>{{createdAt}}</li>
 		<li><button type="submit">Edit</button></li>
 		</ul>
 	</form>
@@ -42,24 +42,25 @@ $(document).ready(function() {
 	border-color: white;
 	border-width: 2px;
 	border-style: solid;
-	border-radius: 10px;
-	background-color: #3000D8;
-	box-shadow: 4px 0px 5px;
 }
 #singlepost {
-	padding: 20px;
+	padding: 30px;
 }
 
 #posts {
-	background-color: dodgerblue;
+	background-color: black;
+	opacity: .77;
+	padding: 20px;
 	margin: 3px;
 	color: white;
 	position: fixed;
 	left: 8.33%;
+	border-radius: 10px;
+
 }
 
 .createpost {
-  	left: 90%;
+  	left: 86%;
     position: fixed;
     padding: 10px;
     font-size: 20px;
