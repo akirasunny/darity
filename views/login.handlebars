@@ -46,8 +46,15 @@
 </header>
 
 <script>
-  $("#signup").on("click", signUp);
+$(document).ready(function() {
+  var sid = localStorage.getItem("sponsorId")
+  console.log(sid)
+  if (sid) {
+    window.location.href = "/sponsors";
+  } 
+});
 
+$("#signup").on("click", signUp);
   function signUp(event) {
     event.preventDefault();
       var obj = {
@@ -55,26 +62,27 @@
         email: $("#email").val().trim()
       }
 
-  if (obj.email.length < 5) {
-    alert("Password must be at least 5 characters long!")
-  }
+if (obj.email.length < 5) {
+  alert("Password must be at least 5 characters long!")
+}
 
-  else {
-    if (obj.name.length < 5) {
-      alert("Name must be at least 5 characters long!")
-    }
+else {
+  if (obj.name.length < 5) {
+    alert("Name must be at least 5 characters long!")
+  }
 
     else {
     $.post("/newsponsor", obj, function(res) {
       console.log(res);
       if (res === "invalid") {
-        alert("Username has already existed. Please try another one.");
+        alert("Username already exists. Please try another one.");
         window.location.href = "/login";
       }
       else{
         localStorage.setItem("sponsorId", res.id);
         console.log(res.id);
-        window.location.href = "/sponsors"
+        window.location.href = "/sponsors";
+        alert("You may now log in!")
       }
     })
     $("#name").val("");
@@ -106,6 +114,9 @@
 </script>
 
 <style>
+header {
+    background-image: url("../img/sponsor1.jpg")
+}
 
 #title1 {
   font-size: 70px;
@@ -131,14 +142,19 @@ input {
 
 #signupbox, #loginbox {
   border-style: solid;
-  border-color: white;
+  border-color: grey;
+  background-color: #008060;
   text-align: right;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
   margin: 10px auto;
   position: relative;
   float: right;
   width: 300px;
   margin-left: 150px;
+<<<<<<< HEAD
+=======
+  opacity:.88;
+>>>>>>> 489739ba6fe7882c8c6de53a802138688d2265dc
 }
 </style>
