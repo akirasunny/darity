@@ -49,7 +49,7 @@
 $(document).ready(function() {
   var pid = localStorage.getItem("playerId")
   console.log(pid)
-  if (pid) {
+  if (!isNaN(localStorage.playerId)) {
     window.location.href = "/players";
   }
 });
@@ -150,9 +150,7 @@ input {
   float: right;
   width: 300px;
   margin-left: 150px;
-<<<<<<< HEAD
-=======
+
   opacity:.77;
->>>>>>> 489739ba6fe7882c8c6de53a802138688d2265dc
 }
 </style>
