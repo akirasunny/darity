@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Ch</title>
+    <title>DareTown: Dare for Charity</title>
     <!-- Bootstrap Core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Fonts -->
@@ -32,7 +32,9 @@
           <i class="fa fa-times"></i>
         </a>
             <li class="sidebar-brand">
+
                 <a class="js-scroll-trigger" href="./">Home</a>
+                
             </li>
             <li>
                 <a class="js-scroll-trigger" href="./leaderboard">Leaderboard</a>
@@ -105,7 +107,7 @@
   font-weight: 700;
   font-family: Righteous;
   color: white;
-  max-width: 1150px;
+  min-width: 100%;
 }
 
 .container2 span {
@@ -193,7 +195,7 @@ function startEverything() {
   if ( clicked ) {
     clicked = false; 
   } else {
-    console.log( index );
+
     // Logic for infinite loop
     if ( infiniteLoop ) { // If looping is on
       if ( turnedOn ) { // If animation is still happening
