@@ -1,6 +1,6 @@
 <header class="header" id="top">
     <div class="text-vertical-center">
-        <h1>PLAYERS</h1>
+        <h1 id="title1">PLAYERS</h1>
     </div>
     <div class="container">
     <div id="posts" class="row">
@@ -8,7 +8,7 @@
     {{#each posts}}
     <form action="/join/{{this.id}}" method="POST">
     	<input type="hidden" name="playerid" value="" class="playerid">
-		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
+		<ul id="singlepost" class="singlepost" style="overflow: auto; max-height: 70%; list-style: none; text-align: center">
 		<li>Title: {{title}}</li>
 		<li>Points: {{points}}</li>
 		<li>Category: {{category}}</li>
@@ -30,8 +30,17 @@ console.log($(".container").css("width"))
 </script>
 
 <style>
+header {
+	   background-image: url("../img/listodopost.jpg");
+}
+
 #title1 {
 	text-align: center;
+}
+
+#title1 {
+	text-align: center;
+	color: black;
 }
 
 .singlepost {
@@ -39,6 +48,7 @@ console.log($(".container").css("width"))
 	border-width: 2px;
 	border-style: solid;
 }
+
 #singlepost {
 	padding: 30px;
 }
