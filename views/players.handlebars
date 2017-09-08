@@ -8,7 +8,7 @@
     {{#each posts}}
     <form action="/join/{{this.id}}" method="POST">
     	<input type="hidden" name="playerid" value="" class="playerid">
-		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
+		<ul id="singlepost" class="singlepost" style="overflow: auto; max-height: 70%; list-style: none; text-align: center">
 		<li>Title: {{title}}</li>
 		<li>Points: {{points}}</li>
 		<li>Category: {{category}}</li>

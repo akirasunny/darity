@@ -49,7 +49,7 @@
 $(document).ready(function() {
   var pid = localStorage.getItem("playerId")
   console.log(pid)
-  if (pid) {
+  if (!isNaN(localStorage.playerId)) {
     window.location.href = "/players";
   }
 });

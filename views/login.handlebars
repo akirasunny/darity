@@ -49,7 +49,7 @@
 $(document).ready(function() {
   var sid = localStorage.getItem("sponsorId")
   console.log(sid)
-  if (sid) {
+  if (!isNaN(localStorage.sponsorId)) {
     window.location.href = "/sponsors";
   } 
 });
