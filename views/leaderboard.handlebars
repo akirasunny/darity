@@ -7,9 +7,8 @@
         </div>
         <div class="col-sm-4">
             <div class="card" style="width: 90%">
-                <img class="card-img-top" src="https://i.giphy.com/media/LCdPNT81vlv3y/200_s.gif" alt="Card image cap">
                 <div class="card-block">
-                    <h4 class="card-title">Top Sponsors</h4>
+                    <h4 class="card-title"><u>Top Sponsors</u></h4>
                     <p class="card-text">
                         <ol>
                             {{#each sponsors}}
@@ -18,15 +17,14 @@
                             {{/each}}
                         </ol>
                     </p>
-                    <a href="./sponsors" class="btn btn-primary">Make Dares</a>
+                    <button id="makeDares" class="btn btn-primary">Make Dares</button>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="card" style="width: 90%">
-                <img class="card-img-top" src="http://cdn-static.denofgeek.com/sites/denofgeek/files/7/79//daredevil_comics.jpg" alt="Card image cap">
                 <div class="card-block">
-                    <h4 class="card-title">Top Players</h4>
+                    <h4 class="card-title"><u>Top Players</u></h4>
                     <p class="card-text">
                         <ol>
                             {{#each players}}
@@ -35,15 +33,39 @@
                             {{/each}}
                         </ol>
                     </p>
-                    <a href="./players" class="btn btn-primary">View Dares</a>
+                    <button id="viewDares" class="btn btn-primary">View Dares</button>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<script>
+$("#makeDares").on("click", function() {
+  if (!localStorage.getItem("sponsorId")) {
+    window.location.href = "/login";
+    }
+    else {
+        window.location.href = "/sponsors"
+    }
+});
+
+$("#viewDares").on("click", function() {
+    if (!localStorage.getItem("playerId")) {
+    window.location.href = "/login2"
+    }
+    else {
+        window.location.href = "/players"
+    }
+})
+</script>
 <style>
+.card {
+    opacity: .88;
+
+}
+
 header {
-    background-image: url("../img/leaderboards.png")
+    background-image: url("../img/bg.jpg");
 }
 
 h1 {

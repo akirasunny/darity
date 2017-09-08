@@ -2,20 +2,27 @@
 	<div class="text-vertical-center row">
 
 	<div class="col-sm-6">
-        <div class="container2">SPONSOR</div>
+        <div class="container2">Your Posts</div>
 		<a href="/create"><button class="createpost">New Post +</button></a>
 
 <br/>
 <div class="row">
 	<div id="posts" class="col-sm-9 handleposts" style="overflow: auto; max-height: 70%">
 	{{#each posts}}
-	<form action="/sponsors/edit/{{id}}" method="POST">
+	<form formaction="/sponsors/edit/{{id}} /delete/{{id}}" method="POST">
 		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
 		<li><h2><u>{{title}}</u></h2></li>
 		<li>{{text}}</li>
 		<li>Reward: {{points}}</li>
-		<li><button type="submit">Edit</button></li>
+		<li>Post ID: {{id}}</li>
+		<li>
+			<button formaction="/sponsors/edit/{{id}}" type="submit">Edit</button>
+
+ 			<button formaction="/delete/{{id}}" class="delete">Delete</button>
+
+		</li>
 		</ul>
+		<hr style="border-color:white;">
 	</form>
 	{{/each}}
 	</div>
@@ -31,9 +38,16 @@ $(document).ready(function() {
 		$(".header").append(content);
 	});
 });
+
+if (!localStorage.getItem("sponsorId")) {
+    window.location.href = "/login"
+    }
 </script>
 
 <style>
+button {
+	border-radius: 3px;
+}
 header {
     background-image: url("../img/listodopost.jpg")
 }
@@ -42,14 +56,10 @@ header {
 	text-align: center;
 }
 
-.singlepost {
-	border-color: white;
-	border-width: 2px;
-	border-style: solid;
-}
 #singlepost {
 	padding: 30px;
 	border-radius: 4px;
+	font-size: 18px;
 }
 
 #posts {

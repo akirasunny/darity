@@ -22,7 +22,6 @@ app.get("/faqs", function(req, res) {
     res.render("faqs");
   });
 
-
 app.get("/myprofile", function(req, res) {
     res.render("myprofile");
   });
@@ -53,6 +52,10 @@ app.get("/login", function(req, res) {
 
 app.get("/login2", function(req, res) {
     res.render("login2");
+  });
+
+app.get("/proof", function(req, res) {
+    res.render("proof");
   });
 };
 

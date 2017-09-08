@@ -84,4 +84,14 @@ module.exports = function(app) {
 			res.render("myprofile", {posts: array});
 		});
 	});
+
+	// app.post("/addproof", function(req, res) {
+	// 	db.post.findOne({
+	// 		where: {
+	// 			name: req.body.id
+	// 		}
+	// 	}).then(function(data) {
+	// 		return
+	// 	});
+	// });
 };

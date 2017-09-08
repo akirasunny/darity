@@ -1,0 +1,75 @@
+<header class="header" id="top">
+</header>
+    <form>
+        <div id="proofBox" class="container">
+            <h1 id="title1"><b> Submit Proof of Completion! </b></h1>
+                <div id="linkBox">
+                    <label id="label"><b><u> URL: </u></b></label>
+                    <input type="text" placeholder="Enter URL" name="name" id="url">
+                    <label id="label"><b><u> Post ID: </u></b></label>
+                    <input type="text" placeholder="Enter Post ID" name="name" id="postId">
+                    <button class="button" type="submit" id="signup">Submit</button>
+                    <div class="container" style="background-color:f1f1f1">
+                </div>
+            </div>
+        </div>
+    </form>
+
+<script>
+// $(".button").on("click", submit);
+//   function signUp(event) {
+//     event.preventDefault();
+//       var obj = {
+//         proof: $("#url").val().trim(),
+//         id: $("#postId").val().trim()
+//         }
+//         $.post("/addproof", obj, function(res) {
+//             $("#url").val("");
+//             $("#postId").val("");
+//         })
+//     };
+</script>
+
+<style>
+header {
+    background-image: url("../img/bg.jpg");
+}
+
+#title1 {
+  font-size: 80px;
+  text-align: left;
+  color: white;
+}
+
+#proofBox {
+    color: white;
+}
+
+#linkBox {
+    text-align: center;
+    margin-top: 80px;
+}
+
+#label {
+    font-size: 28px;
+}
+
+input {
+  border-radius: 3px;
+}
+
+
+.row {
+  margin: auto;
+  
+}
+
+
+.button {
+  border-radius: 8px;
+  background-color: white;
+  border-style: solid;
+  border-color: grey;
+}
+
+</style>

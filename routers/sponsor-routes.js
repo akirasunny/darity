@@ -91,4 +91,10 @@ module.exports = function(app) {
 			res.redirect("/sponsors");
 		});
 	});
+
+	app.post("/delete/:id", function(req, res) {
+		db.post.destroy({where: {id: req.params.id}}).then(function() {
+			res.redirect("/sponsors");
+		});
+	});
 }

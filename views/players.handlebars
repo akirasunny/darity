@@ -1,23 +1,26 @@
 <header class="header" id="top">
     <div class="text-vertical-center">
-        <h1 id="title1">PLAYERS</h1>
+        <h1 id="title1">Posted Dares</h1>
+        <a href="/create"><button class="createpost">New Post +</button></a>
     </div>
     <div class="container">
     <div id="posts" class="row">
-    <div class="col-sm-12">
     {{#each posts}}
+    <div class="col-sm-12">
     <form action="/join/{{this.id}}" method="POST">
     	<input type="hidden" name="playerid" value="" class="playerid">
 		<ul id="singlepost" class="singlepost" style="overflow: auto; max-height: 70%; list-style: none; text-align: center">
-		<li>Title: {{title}}</li>
-		<li>Points: {{points}}</li>
+		<li><b><u><h3>{{title}}</h3></u></b></li>
+		<li><b>Dare:</b> {{text}}</li>
+		<li><b>Points:</b> {{points}}</li>
 		<li>Category: {{category}}</li>
-		<li>Created: {{createdAt}}</li>
+		<li>Post ID: {{id}}</li>
 		<button type="submit" id="join">Save</button>
 		</ul>
+		<hr style="border-color:white;">
 	</form>
-	{{/each}}
 	</div>
+	{{/each}}
 	</div>
 </header>
 
@@ -25,8 +28,12 @@
 $(document).ready(function() {
 	$(".playerid").attr("value", localStorage.playerId);
 });
-
 console.log($(".container").css("width"))
+
+if (!localStorage.getItem("playerId")) {
+    window.location.href = "/login2"
+    }
+
 </script>
 
 <style>
@@ -36,21 +43,12 @@ header {
 
 #title1 {
 	text-align: center;
-}
-
-#title1 {
-	text-align: center;
 	color: black;
 }
 
-.singlepost {
-	border-color: white;
-	border-width: 2px;
-	border-style: solid;
-}
-
 #singlepost {
-	padding: 30px;
+	padding: 20px;
+	width: 100%;
 }
 
 #posts {

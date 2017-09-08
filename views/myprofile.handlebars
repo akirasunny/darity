@@ -2,17 +2,26 @@
 	<div class="text-vertical-center">
         <div class="container2">MY DARES
         </div>
-    <div class="points"><strong>
+    <section class="points"><strong>
 	   Current Points: 0
-	</strong></div>
+	</strong></section>
 	<div id="posts">
 	{{#each posts}}
-		<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
-		<li>Title: {{title}}</li>
-		<li>Points: {{points}}</li>
-		<li>Category: {{category}}</li>
-		<li>Created: {{createdAt}}</li>
-		</ul>
+		<form action="/proof">
+			<ul id="singlepost" class="singlepost" style="list-style: none; text-align: center">
+			<li><b><u><h3>{{title}}</h3></u></b></li>
+			<li>Dare: {{text}}</li>
+			<li>Points: {{points}}</li>
+			<li>Category: {{category}}</li>
+			<li>Post ID: {{id}}</li>
+			<li>
+				<button type="submit">
+				Complete
+				</button>
+			</li>
+			</ul>
+			<hr style="border-color:white;">
+		</form>
 	{{/each}}
 	</div>
 </header>
@@ -25,9 +34,16 @@ $(document).ready(function() {
 		$("#posts").html(content);
 	})
 })
+
+if (!localStorage.getItem("playerId")) {
+    window.location.href = "/login2"
+    }
 </script>
 
 <style>
+section {
+	font-size: 30px;
+}
 header {
     background-image: url("../img/listodopost.jpg")
 }
@@ -43,11 +59,6 @@ header {
 	margin-right: 2%;
 }
 
-.singlepost {
-	border-color: white;
-	border-width: 2px;
-	border-style: solid;
-}
 #singlepost {
 	padding: 30px;
 }
@@ -60,6 +71,7 @@ header {
 	color: white;
 	left: 8.33%;
 	border-radius: 10px;
+	width: 70%;
 }
 
 .createpost {
